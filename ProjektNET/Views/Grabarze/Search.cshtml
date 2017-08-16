@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ProjektNET.Models.Grabarz>
+
+@{
+    ViewBag.Title = "Szukaj";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Grabarz</h4>
+        <hr />
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Imię</label>
+            <div class="col-md-10">
+                <div>@Html.TextBox("Imie", null, htmlAttributes: new { @class = "form-control" })</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Nazwisko</label>
+            <div class="col-md-10">
+                <div>@Html.TextBox("Nazwisko", null, htmlAttributes: new { @class = "form-control" })</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Pesel</label>
+            <div class="col-md-10">
+                <div>@Html.TextBox("Pesel", null, htmlAttributes: new { @class = "form-control" })</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Szukaj" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Imie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pesel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataUrodzenia)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pesel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataUrodzenia)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Podgląd", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Wróć", "Index")
+</div>

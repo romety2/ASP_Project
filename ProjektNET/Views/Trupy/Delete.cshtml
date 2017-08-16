@@ -1,0 +1,57 @@
+﻿@model ProjektNET.Models.Trup
+
+@{
+    ViewBag.Title = "Usuń";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Czy na pewno chcesz usunąć?</h3>
+<div>
+    <h4>Trup</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pesel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pesel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSmierci)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSmierci)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć", "Index")
+        </div>
+    }
+</div>

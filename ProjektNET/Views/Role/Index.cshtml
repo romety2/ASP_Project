@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2> Zarządzaj kontami </h2>
+
+<hr />
+<div>
+    @foreach (var user in Model)
+    {
+        <p>
+            <b>@user.Email </b>
+            <span onclick="return confirm('Czy na pewno chcesz usunąć?')"><a href="/Role/Delete?UserEmail=@user.Email" class="delLink" style="color:red;">Usuń</a></span>
+        </p>
+    }
+</div>
+<br />
+<i><b>@Html.ActionLink("Zmień uprawnienia użytkownikom", "Edit")</b></i>
+<br />
+<i><b>@Html.ActionLink("Sprawdź uprawnienia użytkowników", "Check")</b></i>

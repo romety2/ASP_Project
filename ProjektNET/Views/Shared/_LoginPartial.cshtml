@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Witaj " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li>@Helpers.Zarzadzanie("Zarządzaj", "Index", "Role", "Administrator")</li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Wyloguj</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tło<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Białe", "SetTlo", new { kolor = "#FFFFFF" })</li>
+                <li>@Html.ActionLink("Czerwone", "SetTlo", new { kolor = "#F08080" })</li>
+                <li>@Html.ActionLink("Niebieskie", "SetTlo", new { kolor = "#4169E1" })</li>
+                <li>@Html.ActionLink("Różowe", "SetTlo", new { kolor = "#EE82EE" })</li>
+                <li>@Html.ActionLink("Szare", "SetTlo", new { kolor = "#A9A9A9" })</li>
+                <li>@Html.ActionLink("Zielone", "SetTlo", new { kolor = "#90EE90" })</li>
+                <li>@Html.ActionLink("Żółte", "SetTlo", new { kolor = "#FFFFE0" })</li>
+                <body style="@Html.Action("GetTlo", "Home")">
+            </ul>
+        </li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Zarejestruj", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Zaloguj", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tło<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Białe", "SetTlo", new { kolor = "#FFFFFF" })</li>
+                <li>@Html.ActionLink("Czerwone", "SetTlo", new { kolor = "#F08080" })</li>
+                <li>@Html.ActionLink("Niebieskie", "SetTlo", new { kolor = "#4169E1" })</li>
+                <li>@Html.ActionLink("Różowe", "SetTlo", new { kolor = "#EE82EE" })</li>
+                <li>@Html.ActionLink("Szare", "SetTlo", new { kolor = "#A9A9A9" })</li>
+                <li>@Html.ActionLink("Zielone", "SetTlo", new { kolor = "#90EE90" })</li>
+                <li>@Html.ActionLink("Żółte", "SetTlo", new { kolor = "#FFFFE0" })</li>
+                <body style="@Html.Action("GetTlo", "Home")">
+           </ul>
+        </li>
+    </ul>
+}

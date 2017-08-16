@@ -1,0 +1,59 @@
+﻿@model ProjektNET.Models.Pogrzeb
+
+@{
+    ViewBag.Title = "Podgląd";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Pogrzeb</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Grabarz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grabarz.Imie) @Html.DisplayFor(model => model.Grabarz.Nazwisko) (@Html.DisplayFor(model => model.Grabarz.Pesel))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trup.Imie) @Html.DisplayFor(model => model.Trup.Nazwisko) (@Html.DisplayFor(model => model.Trup.Pesel))
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.PogrzebID }) |
+    @Html.ActionLink("Wróć", "Index")
+</p>

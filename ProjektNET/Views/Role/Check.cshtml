@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Sprawdź uprawnienia użytkownika";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Użytkownik</label>
+            <div class="col-md-10">
+                @Html.TextBox("userEmail", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Sprawdź" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@if (ViewBag.RolesMyUser != null)
+{
+    <div>
+        <p>
+            Uprawnienia użytkownika:
+            @foreach (string r in ViewBag.RolesMyUser)
+            {
+                <b>@r</b>
+            }
+        </p>
+    </div>
+}
+@Html.ActionLink("Wróć", "Index")

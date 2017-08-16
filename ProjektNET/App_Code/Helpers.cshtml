@@ -1,0 +1,12 @@
+﻿@helper Email(string text, string email)
+{
+        <a href="mailto:@email">@text</a>
+}
+
+@helper Zarzadzanie(string linkText, string actionName, string controllerName, string role)
+{
+    if (User.IsInRole(role))
+    {
+         <a href="/@controllerName/@actionName">@linkText</a>
+    }
+}

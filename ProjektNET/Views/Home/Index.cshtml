@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="text-center"><i>Zakład pogrzebowy</i></h1>
+        <h2 class="text-center"><i><u>Łukasz Mielewczyk</u></i></h2>
+        <h3 class="text-center"><i>@Helpers.Email("lmielewczyk@inf.ug.edu.pl", "lmielewczyk@inf.ug.edu.pl")</i></h3>
+        <p class="text-center">
+            Nasza firma świadcząca usługi związane z pochówkiem zmarłych. Kompleksowe usługi obejmują:
+            @Html.Partial("Uslugi")
+        </p>
+    </div>
+</div>
